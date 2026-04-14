@@ -116,11 +116,112 @@ Sem saber qual caminho o programa tomará, a unidade de busca não pode avançar
 > [!tip] Meta do pipeline
 > Manter **todas as unidades internas ocupadas** a maior parte do tempo, minimizando stalls e maximizando o aproveitamento do clock.
 
+## Modelo de 6 Estágios (SEQ — processador sequencial)
+
+Organização canônica de pipeline com 6 estágios usada em projetos didáticos (ex: [[Y86-64]]):
+
+| Estágio | Sigla | Função |
+|---|---|---|
+| **Fetch** | F | Lê instrução da memória; calcula valP (PC+tamanho) |
+| **Decode** | D | Lê registradores fonte (valA, valB) |
+| **Execute** | E | ALU calcula resultado (valE) ou endereço efetivo |
+| **Memory** | M | Lê ou escreve dado na memória (valM) |
+| **Write-back** | W | Escreve resultados no banco de registradores |
+| **PC update** | — | Calcula próximo PC (valP, valC ou valM) |
+
+No modelo **SEQ**, todos os estágios ocorrem num único ciclo de clock. No modelo **PIPE**, cada estágio tem seu registrador de pipeline e opera em paralelo sobre instruções distintas.
+
+## Forwarding (Data Bypassing)
+
+Técnica que elimina stalls RAW passando o resultado de um estágio posterior diretamente como entrada de um estágio anterior, sem esperar o write-back.
+
+### 5 fontes de forwarding (em pipeline de 5 estágios)
+
+| Sinal | Origem | Descrição |
+|---|---|---|
+| `e_valE` | Execute | saída da ALU (instrução atual em Execute) |
+| `m_valM` | Memory | dado lido da memória (instrução atual em Memory) |
+| `M_valE` | reg. pipeline M | valE pendente para write-back via porta E |
+| `W_valM` | reg. pipeline W | valM pendente para write-back via porta M |
+| `W_valE` | reg. pipeline W | valE pendente para write-back via porta E |
+
+### 2 destinos de forwarding
+- `valA` — operando fonte A do estágio Decode
+- `valB` — operando fonte B do estágio Decode
+
+### Prioridade
+Quando múltiplas fontes cobrem o mesmo registrador: **fonte no estágio mais cedo tem prioridade** (instrução mais recente no programa). Exemplo: se `e_dstE` e `M_dstE` apontam para o mesmo registrador, usar `e_valE`.
+
+## Hazard de Load/Use
+
+Caso que **não pode ser resolvido só por forwarding**: instrução de carga (`mrmovq`, `popq`) seguida imediatamente por instrução que usa o registrador carregado.
+
+O dado só fica disponível ao sair do estágio Memory — mas a próxima instrução já precisa dele no estágio Execute do mesmo ciclo. Solução: **stall de 1 ciclo + forwarding**.
+
+Condição de detecção:
+```
+E_icode ∈ {mrmovq, popq}  AND  E_dstM ∈ {d_srcA, d_srcB}
+```
+
+Efeito no ciclo seguinte: bolha injetada em Execute; Decode e Fetch travados (stall).
+
+## Controle de Pipeline — Stall vs Bubble
+
+| Mecanismo | Efeito no registrador de pipeline |
+|---|---|
+| **Normal** | carrega novo valor na borda de subida do clock |
+| **Stall** | mantém valor atual (instrução não avança) |
+| **Bubble** | força estado de nop (instrução cancelada) |
+
+### Condições que exigem controle especial
+
+| Condição | Ação |
+|---|---|
+| Load/use hazard | Stall em F e D; bubble em E |
+| Instrução `ret` em D/E/M | Stall em F; bubble em D (por 3 ciclos) |
+| Branch mispredicted | Bubble em D e E; fetch do caminho correto |
+| Exceção em M ou W | Bubble em M; stall em W |
+
+## CPI — Cycles Per Instruction
+
+Métrica de eficiência do pipeline. CPI ideal = 1,0.
+
+```
+CPI = 1,0 + lp + mp + rp
+```
+
+| Penalidade | Nome | Cálculo típico |
+|---|---|---|
+| **lp** | load/use | freq_load × freq_hazard × 1 bolha |
+| **mp** | branch misprediction | freq_branch × freq_miss × 2 bolhas |
+| **rp** | return | freq_ret × 1,0 × 3 bolhas |
+
+### Valores de referência (benchmark típico)
+
+| Parâmetro | Valor |
+|---|---|
+| Instruções de carga | 25% das instruções |
+| Load/use hazard (dado uso imediato) | 20% das cargas |
+| Desvios condicionais | 20% das instruções |
+| Misprediction (always-taken) | 40% dos desvios |
+| Instruções ret | 2% das instruções |
+
+```
+lp = 0,25 × 0,20 × 1 = 0,05
+mp = 0,20 × 0,40 × 2 = 0,16
+rp = 0,02 × 1,00 × 3 = 0,06
+CPI ≈ 1,27
+```
+
+> [!note] Maior fonte de penalidade
+> Misprediction de branches (mp=0,16) domina. Reduzir erros de [[Previsão de Desvio]] de 40% → 35% baixa o CPI de 1,27 para 1,25.
+
 ## Relação com desempenho
 
 O número de estágios (profundidade do pipeline) afeta o desempenho:
 - Mais estágios → clock mais alto possível (cada etapa é mais simples)
 - Mais estágios → penalidade maior por stall (mais instruções a descartar)
+- Overhead dos registradores de pipeline limita ganho: `throughput = 1000 / (delay_lógica/k + 20ps)`
 
 Processadores modernos têm dezenas de estágios. Ver [[Concorrência e Paralelismo]] para superescalar, execução fora de ordem e outras técnicas.
 
@@ -134,3 +235,4 @@ Processadores modernos têm dezenas de estágios. Ver [[Concorrência e Paraleli
 - [[Previsão de Desvio]] — mitiga hazards de controle
 - [[Execução Fora de Ordem]] — elimina hazards WAR/WAW por renaming
 - [[Microprogramação]] — Mic-3/Mic-4 como exemplos didáticos de pipeline
+- [[Y86-64]] — ISA pedagógica com implementações SEQ e PIPE detalhadas

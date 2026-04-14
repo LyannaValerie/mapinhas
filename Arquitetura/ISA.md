@@ -37,9 +37,9 @@ Nível 2 da [[Níveis de Abstração|organização estruturada de computadores]]
 
 | ISA             | Tipo                  | Mercado dominante                        | Uso neste estudo                                                              |
 | --------------- | --------------------- | ---------------------------------------- | ----------------------------------------------------------------------------- |
-| **x86**         | [[RISC e CISC\|CISC]] | PCs (Windows, Linux, Mac) e servidores   | Arquitetura de referência para PCs — ver [[Intel x86]]                        |
-| **ARM**         | [[RISC e CISC\|RISC]] | Smartphones e tablets (maioria absoluta) | Mercado móvel — ver [[ARM]]                                                   |
-| **AVR** (Atmel) | [[RISC e CISC\|RISC]] | Microcontroladores de baixo custo        | Computação embutida (ex: [[Microcontrolador#Arduino\|Arduino]]) — ver [[AVR]] |
+| **x86**         | [[RISC e CISC|CISC]] | PCs (Windows, Linux, Mac) e servidores   | Arquitetura de referência para PCs — ver [[Intel x86]]                        |
+| **ARM**         | [[RISC e CISC|RISC]] | Smartphones e tablets (maioria absoluta) | Mercado móvel — ver [[ARM]]                                                   |
+| **AVR** (Atmel) | [[RISC e CISC|RISC]] | Microcontroladores de baixo custo        | Computação embutida (ex: [[Microcontrolador#Arduino|Arduino]]) — ver [[AVR]] |
 
 > [!info] Por que três ISAs?
 > Cada família representa um ponto distinto no espectro de trade-offs (desempenho × custo × consumo). x86 maximiza desempenho; ARM equilibra desempenho e energia; AVR minimiza custo.

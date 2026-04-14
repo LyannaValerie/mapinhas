@@ -17,7 +17,7 @@ Estrutura de dados LIFO usada pelo processador para gerenciar chamadas de proced
 
 | Sujeito | Predicado | Objeto |
 |---|---|---|
-| Pilha | é gerenciada por | [[Registrador\|SP e LV]] |
+| Pilha | é gerenciada por | [[Registrador|SP e LV]] |
 | SP | aponta para | topo da pilha |
 | LV | aponta para | base do frame atual |
 | Frame | contém | link pointer, variáveis locais, pilha de operandos |

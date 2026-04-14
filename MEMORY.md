@@ -2,6 +2,57 @@
 
 ---
 
+## Ingestão 82 — 2026-04-13
+
+### Texto Processado
+- **CS:APP Cap. 5** — Optimizing Program Performance: CPE, optimization blockers, code motion, ILP techniques (loop unrolling, múltiplos acumuladores, reassociação), limites (latency/throughput bound), caminho crítico, register spilling, write/read dependency, profiling
+
+### Notas criadas
+| Nota | Conteúdo |
+|---|---|
+| [[Otimização de Código]] | CPE; aliasing de memória e side effects como blockers; code motion; acumular em variável local; grafo de fluxo de dados e caminho crítico; latency/throughput bound (tabela Haswell); loop unrolling k×1; múltiplos acumuladores k×k; reassociação k×1a; register spilling; conditional moves; write/read dependency; profiling com gprof |
+
+### Notas atualizadas
+| Nota | O que foi adicionado |
+|---|---|
+| [[Desempenho do Processador]] | Link para [[Otimização de Código]] na seção Ver também |
+
+### Conexões criadas
+- Otimização de Código → Execução Fora de Ordem, Pipeline, Previsão de Desvio, Cache, Lei de Amdahl, Instruções SIMD
+- Desempenho do Processador → Otimização de Código (bridge: hardware vs. perspectiva do programador)
+
+### Lacunas pendentes
+- Análise de prefixo sum (psum) com reassociação: CPE < latência de FP add — não detalhada (exercício 5.19)
+- Profiling do exemplo n-gram Shakespeare: não criado como nota separada (exemplo ilustrativo apenas)
+
+---
+
+## Ingestão 81 — 2026-04-13
+
+### Texto Processado
+- **CS:APP Cap. 4** — Processor Architecture: Y86-64 ISA, lógica HCL, SEQ, pipelining (PIPE), hazards, forwarding, CPI
+
+### Notas criadas
+| Nota       | Conteúdo                                                                                                                                                             |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [[Y86-64]] | ISA pedagógica: 15 registradores, instrução encoding (icode\|ifun), OPq/jXX/cmovXX, status codes AOK/HLT/ADR/INS, tabela de register IDs, convenções pushq/popq %rsp |
+
+### Notas atualizadas
+| Nota | O que foi adicionado |
+|---|---|
+| [[Pipeline]] | Modelo SEQ 6 estágios; forwarding (5 fontes, 2 destinos, prioridade); load/use hazard (condição + solução); controle stall/bubble por condição; fórmula CPI = 1,0 + lp + mp + rp com valores de referência (CPI≈1,27) |
+| [[Previsão de Desvio]] | Estratégias estáticas nomeadas: AT (~60%), NT (~40%), BTFNT (~65%); explicação da heurística backward/forward |
+
+### Conexões criadas
+- Y86-64 → Pipeline (implementações SEQ/PIPE)
+- Pipeline.CPI → Previsão de Desvio (mp=0,16 é maior penalidade)
+
+### Lacunas pendentes
+- HCL (Hardware Control Language): linguagem de descrição de controle lógico — não criada (escopo muito específico de CS:APP)
+- Implementação Verilog do PIPE: mencionada no cap. mas não coberta
+
+---
+
 ## Ingestões 79–80 — 2026-04-12
 
 ### Textos Processados

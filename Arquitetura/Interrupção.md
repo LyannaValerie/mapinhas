@@ -155,6 +155,25 @@ Exceções fazem parte do uso **normal** do sistema. Exemplos:
 
 Cada exceção tem um **número de vetor** (0–31) e um mnemônico. Vetores 32–255 são reservados para interrupções mascaráveis.
 
+### Mecanismo de Evento e Handler
+
+Quando ocorre um **evento** durante a execução de Icurr:
+
+1. Processador detecta o evento
+2. Usa o número do evento como índice na **tabela de exceções** — *jump table* onde a entrada k contém o endereço do handler da exceção k
+3. Faz chamada indireta ao **exception handler** correspondente
+4. Handler conclui → um de três resultados:
+   - Retorna para **Icurr** — instrução que estava executando quando o evento ocorreu
+   - Retorna para **Inext** — próxima instrução que executaria normalmente
+   - **Aborta** o programa interrompido
+
+O evento pode ser:
+- **Relacionado** à instrução corrente: page fault, overflow aritmético, divisão por zero
+- **Não relacionado** à instrução: timer do sistema, conclusão de operação de E/S
+
+> [!note] ECF em nível hardware
+> Esse mecanismo é a forma de [[Fluxo de Controle Excepcional|ECF]] em nível hardware — base para E/S, processos e memória virtual.
+
 ### Tabela de Exceções x86
 
 | Vetor | Mnemônico | Nome | Situação |
@@ -200,6 +219,7 @@ Ver [[Proteção de Memória x86]] para a estrutura da IDT como tabela de descri
 ---
 
 ## Ver também
+- [[Fluxo de Controle Excepcional]] — exceções como ECF em nível hardware
 - [[Processador]]
 - [[Registradores x86]] — IF flag em EFLAGS; IDTR
 - [[Sistema Operacional]]

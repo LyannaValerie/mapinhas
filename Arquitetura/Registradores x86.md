@@ -205,7 +205,7 @@ Usados pelo sistema de segmentação e gerenciamento de tarefas.
 |---|---|---|
 | **GDTR** | 48 (32 bits) / 80 (64 bits) | Endereço base + limite da Global Descriptor Table |
 | **LDTR** | 16 | Seletor de segmento da Local Descriptor Table |
-| **IDTR** | 48 (32 bits) / 80 (64 bits) | Endereço base + limite da tabela de [[Interrupção\|interrupções]] (IDT) |
+| **IDTR** | 48 (32 bits) / 80 (64 bits) | Endereço base + limite da tabela de [[Interrupção|interrupções]] (IDT) |
 | **TR** | 16 | Seletor do TSS (Task State Segment) para controle de tarefas |
 
 > [!note] Estrutura dos registradores de tabela (GDTR/IDTR)

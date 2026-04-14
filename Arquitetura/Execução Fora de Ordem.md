@@ -141,6 +141,6 @@ Frontend → Decodifica N instruções/ciclo
 
 - [[Pipeline]] — base sobre a qual OoO é construído
 - [[Previsão de Desvio]] — necessária para execução especulativa
-- [[Arquitetura/Caminho de Dados]] — registradores físicos e datapath
+- [[Caminho de Dados]] — registradores físicos e datapath
 - [[Concorrência e Paralelismo]] — ILP explorado por OoO
 - [[ISA]] — registradores arquiteturais (visíveis ao programador) vs. físicos

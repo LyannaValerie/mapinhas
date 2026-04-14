@@ -100,7 +100,7 @@ Exemplo concreto de implementação microprogramada, usado como modelo didático
 Quando JMPC=1, os 8 bits baixos do MPC recebem MBR (opcode da instrução corrente). Isso implementa uma **tabela de despacho**: cada opcode salta diretamente para a microrotina correspondente.
 
 ### Registradores do Datapath
-MAR, MDR, PC, MBR, SP, LV, CPP, TOS, OPC, H. Ver [[Arquitetura/Caminho de Dados]] para detalhes.
+MAR, MDR, PC, MBR, SP, LV, CPP, TOS, OPC, H. Ver [[Caminho de Dados]] para detalhes.
 
 ## IFU — Instruction Fetch Unit (Mic-2)
 
@@ -154,6 +154,6 @@ MAIN3  if (Z) goto T; else goto F
 - [[Registrador]]
 - [[Hardware]]
 - [[História da Computação]]
-- [[Arquitetura/Caminho de Dados]] — datapath do Mic-1
+- [[Caminho de Dados]] — datapath do Mic-1
 - [[Pipeline]] — evolução Mic-3/Mic-4
 - [[Fundamentos/Pilha]] — SP/LV como registradores do datapath

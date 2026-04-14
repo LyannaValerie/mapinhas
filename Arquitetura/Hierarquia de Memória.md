@@ -36,7 +36,7 @@ L6   Armazenamento remoto — sistemas de arquivos distribuídos, servidores Web
 
 | Nível | Nome | Tecnologia | Capacidade típica | Gerenciado por |
 |---|---|---|---|---|
-| L0 | [[Registrador\|Registradores]] | — | ~centenas de bytes | Compilador |
+| L0 | [[Registrador|Registradores]] | — | ~centenas de bytes | Compilador |
 | L1 | [[Cache]] L1 | SRAM | dezenas de KB | Hardware (automático) |
 | L2 | [[Cache]] L2 | SRAM | centenas de KB a MB | Hardware (automático) |
 | L3 | [[Cache]] L3 | SRAM | dezenas de MB | Hardware (automático) |
@@ -51,11 +51,40 @@ L6   Armazenamento remoto — sistemas de arquivos distribuídos, servidores Web
 - A **memória principal** é cache para o disco local
 - O **disco local** é cache para armazenamento remoto (em sistemas com sistemas de arquivos distribuídos)
 
+## Tipos de Miss
+
+| Tipo | Condição |
+|---|---|
+| **Cold miss** (frio/compulsório) | Primeiro acesso a qualquer bloco — inevitável |
+| **Conflict miss** (conflito) | Cache tem espaço, mas blocos concorrem pelo mesmo conjunto |
+| **Capacity miss** (capacidade) | Working set excede tamanho da cache |
+
+## Onipresença do Cache
+
+| Tipo de cache | O que armazena | Onde |
+|---|---|---|
+| Registradores CPU | Palavras de 4–8 B | Chip |
+| TLB | Traduções de endereço | Chip (MMU) |
+| L1/L2/L3 | Blocos de 64 B | Chip (SRAM) |
+| Memória virtual | Páginas de 4 KB | RAM (SO + hardware) |
+| Buffer cache | Partes de arquivos | RAM (SO) |
+| Cache de disco | Setores | Controlador |
+| Cache de rede/browser | Páginas Web | Disco local |
+
+## Memory Mountain
+
+Função 2D que caracteriza o desempenho do sistema de memória: **throughput de leitura** vs **tamanho do working set** (eixo temporal) e **stride** (eixo espacial).
+
+- **Cristas** perpendiculares ao stride = regiões onde o working set cabe em L1, L2, L3 ou RAM
+- **Declives** ao longo do stride = queda de throughput conforme stride aumenta (pior localidade espacial)
+- Core i7 Haswell: pico L1 ~14 GB/s; mínimo RAM ~900 MB/s → **>1 ordem de grandeza** de diferença
+- Stride-1 com prefetching mantém throughput elevado mesmo com working set > L2
+
 ## Implicação para programadores
 
 Programadores que compreendem a hierarquia de memória podem estruturar seu código para **explorar a localidade** — mantendo dados frequentemente acessados nos níveis mais altos (mais rápidos). Ganhos de desempenho de uma ordem de grandeza são possíveis.
 
-Ver [[Cache#Princípio de funcionamento — Localidade]] para o princípio de localidade temporal e espacial.
+Ver [[Otimização de Código#Localidade e Cache]] para técnicas concretas.
 
 ## Ver também
 - [[Cache]] — detalhes de L1/L2/L3, SRAM vs DRAM, gap processador-memória

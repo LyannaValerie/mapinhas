@@ -152,7 +152,7 @@ BLT LOOP   ; desvia para PC + deslocamento
 
 ## Comparação entre Arquiteturas
 
-| Modo | [[Intel x86\|Core i7]] | [[ARM]] OMAP4430 | [[AVR]] ATmega168 |
+| Modo | [[Intel x86|Core i7]] | [[ARM]] OMAP4430 | [[AVR]] ATmega168 |
 |---|---|---|---|
 | Imediato | ✓ | ✓ | ✓ |
 | Direto | ✓ | — | ✓ (limitado a 7 bits; 16 bits em instrução de 32 bits) |
@@ -178,11 +178,44 @@ Instruções de desvio também precisam especificar o destino:
 
 ---
 
+---
+
+## Especificadores de Operando x86-64
+
+Em x86-64 (ATT syntax), os operandos de uma instrução se dividem em três tipos e nove formas:
+
+| Tipo | Sintaxe | Valor efetivo | Nome |
+|---|---|---|---|
+| Imediato | `$Imm` | `Imm` | Imediato |
+| Registrador | `ra` | `R[ra]` | Registrador |
+| Memória | `Imm` | `M[Imm]` | Absoluto |
+| Memória | `(ra)` | `M[R[ra]]` | Indireto |
+| Memória | `Imm(rb)` | `M[Imm + R[rb]]` | Base + deslocamento |
+| Memória | `(rb, ri)` | `M[R[rb] + R[ri]]` | Indexado |
+| Memória | `Imm(rb, ri)` | `M[Imm + R[rb] + R[ri]]` | Indexado |
+| Memória | `(, ri, s)` | `M[R[ri] · s]` | Indexado com escala |
+| Memória | `Imm(, ri, s)` | `M[Imm + R[ri] · s]` | Indexado com escala |
+| Memória | `(rb, ri, s)` | `M[R[rb] + R[ri] · s]` | Indexado com escala |
+| Memória | `Imm(rb, ri, s)` | `M[Imm + R[rb] + R[ri] · s]` | Forma geral |
+
+**Fator de escala `s`**: deve ser 1, 2, 4 ou 8 — cobre os tamanhos dos tipos primitivos (char, short, int, long/ptr).
+
+A forma geral `Imm(rb, ri, s)` é usada principalmente para acesso a elementos de arrays: `Imm` = deslocamento do campo, `rb` = endereço base da estrutura, `ri` = índice, `s` = tamanho do elemento.
+
+> [!example] Exemplo
+> `9(%rax, %rdx)` → `M[R[%rax] + R[%rdx] + 9]`  
+> `(%rax, %rdx, 4)` → `M[R[%rax] + R[%rdx] · 4]`
+
+Restrição importante: uma instrução **não pode** ter dois operandos de memória simultaneamente — copiar de memória para memória requer instrução intermediária via registrador.
+
+---
+
 ## Ver também
 - [[Formatos de Instrução]]
 - [[ISA]]
 - [[Pilha]]
 - [[Registradores x86]]
+- [[Convenção de Chamada x86-64]]
 - [[ARM]]
 - [[AVR]]
 - [[RISC e CISC]]

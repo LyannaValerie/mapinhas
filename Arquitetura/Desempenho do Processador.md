@@ -188,3 +188,4 @@ Clock não é fixo — varia automaticamente com carga e limites térmicos/elét
 - [[Instruções SIMD]] — paralelismo de dados
 - [[Registradores x86]] — registradores lógicos vs. físicos (renomeamento)
 - [[Modos de Operação x86]] — fusão de instruções disponível por modo
+- [[Otimização de Código]] — como explorar essas técnicas a partir do código C (CPE, loop unrolling, múltiplos acumuladores)
