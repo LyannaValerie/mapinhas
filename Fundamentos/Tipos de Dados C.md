@@ -188,6 +188,82 @@ Um caractere entre aspas simples representa o **valor inteiro** desse caractere 
 
 ---
 
+## Operações bit a bit em C
+
+C suporta operações booleanas diretamente sobre qualquer tipo integral.
+
+### Operadores bitwise
+
+| Operador | Operação | Exemplo (char) | Resultado |
+|---|---|---|---|
+| `~` | NOT (complemento) | `~0x41` | `0xBE` |
+| `&` | AND | `0x69 & 0x55` | `0x41` |
+| `\|` | OR | `0x69 \| 0x55` | `0x7D` |
+| `^` | XOR | `0x69 ^ 0x55` | `0x3C` |
+| `<<` | shift esquerda | `x << k` | `x * 2^k` (descarta bits altos) |
+| `>>` | shift direita | `x >> k` | lógico (unsigned) ou aritmético (signed) |
+
+### Bitwise vs. lógico — diferença crítica
+
+| Expressão | Tipo | Resultado para `a=0x55, b=0x46` |
+|---|---|---|
+| `a & b` | bitwise | `0x44` |
+| `a && b` | lógico | `0x01` (verdadeiro/falso) |
+| `a \| b` | bitwise | `0x57` |
+| `a \|\| b` | lógico | `0x01` |
+| `!a` | lógico NOT | `0x00` (a ≠ 0) |
+| `~a` | bitwise NOT | `0xAA` |
+
+> [!warning] Curto-circuito lógico
+> `&&` e `||` não avaliam o segundo operando se o resultado já é determinado pelo primeiro: `a && 5/a` nunca divide por zero; `p && *p++` nunca desreferencia ponteiro nulo.
+
+### Mascaramento
+
+Padrão comum: isolar ou manipular subconjunto de bits com máscara.
+
+```c
+x & 0xFF          /* byte menos significativo de x; demais zerados */
+x ^ ~0xFF         /* complementa todos os bytes exceto o menos significativo */
+x | 0xFF          /* byte menos significativo = todos 1s */
+~0               /* máscara de todos 1s — independente do word size */
+(1 << k) - 1     /* k bits inferiores = 1 (máscara de k bits) */
+```
+
+### Shift em C
+
+```c
+/* Shift esquerda: mesmo para signed e unsigned */
+x << k    /* x * 2^k; bits altos descartados */
+
+/* Shift direita unsigned: sempre lógico (zero fill) */
+(unsigned) x >> k    /* x / 2^k, arredonda para baixo */
+
+/* Shift direita signed: aritmético na maioria dos compiladores */
+(int) x >> k    /* copia bit de sinal; ≡ ⌊x / 2^k⌋ */
+```
+
+> [!warning] Shift por k ≥ word size é comportamento indefinido em C. Resultado depende da implementação (muitos usam `k mod w`).
+
+### Promoção signed → unsigned em expressões mistas
+
+Quando expressão mistura `int` e `unsigned`, C converte `int` para `unsigned`:
+
+```c
+-1 < 0U      /* falso: -1 vira 4294967295U */
+2147483647U > -2147483647-1   /* falso: TMin vira 2147483648U */
+```
+
+> [!danger] Bug clássico: `length` unsigned em loop
+> ```c
+> float sum_elements(float a[], unsigned length) {
+>     for (int i = 0; i <= length-1; i++)   /* se length=0, length-1 = UMax! */
+>         result += a[i];
+> }
+> ```
+> `0 - 1` em unsigned = `UMax`. Fix: usar `i < length` ou declarar `length` como `int`.
+
+---
+
 ## Operadores de incremento e decremento
 
 | Operador | Significado | Equivalente |
@@ -201,7 +277,9 @@ Um caractere entre aspas simples representa o **valor inteiro** desse caractere 
 ---
 
 ## Ver também
-- [[Sistemas de Representação]] — unsigned, signed, IEEE 754 em detalhe
+- [[Sistemas de Representação]] — unsigned, signed, IEEE 754; T2U/U2T; extensão/truncamento
+- [[Aritmética Inteira]] — overflow, otimização por shift, vulnerabilidades de segurança
+- [[Álgebra Booleana]] — fundamento matemático das operações bit a bit
 - [[Memória]] — tamanhos dos tipos em x86-64 (Linux)
 - [[Palavras Binárias]] — byte, word, dword, qword; como inteiros são armazenados
 - [[ASCII]] — char como representação de caractere; sequências de escape C

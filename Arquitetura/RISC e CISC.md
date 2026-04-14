@@ -39,7 +39,7 @@ Pesquisadores perceberam que a maioria dos programas usava apenas um pequeno sub
 |---|---|---|
 | Tamanho do ISA | Grande (centenas de instruções) | Pequeno (dezenas de instruções) |
 | **Tamanho das instruções** | **Variável** | **Padronizado (fixo)** |
-| Implementação | Via [[Microprogramação\|microcódigo]] | Hardware direto |
+| Implementação | Via [[Microprogramação|microcódigo]] | Hardware direto |
 | Instruções complexas | Sim (multiplicação, strings, etc.) | Não — compostas de instruções simples |
 | Microcódigo / microinstruções | Sim — cada instrução quebrada em etapas internas | Não |
 | Registradores | Poucos | Muitos |

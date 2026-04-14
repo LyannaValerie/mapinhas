@@ -12,6 +12,11 @@ aliases:
   - multicore
   - hyperthreading
   - simultaneous multithreading
+  - programação concorrente
+  - speedup
+  - eficiência paralela
+  - strong scaling
+  - weak scaling
 tags:
   - computação/arquitetura
 date: 2026-04-07
@@ -205,10 +210,96 @@ Vários computadores **sem memória compartilhada**, cada um com memória privad
 
 ---
 
+## Taxonomia de Flynn
+
+Classificação de arquiteturas paralelas por fluxos de instruções × fluxos de dados:
+
+| Fluxos de instrução | Fluxos de dados | Nome | Exemplos |
+|---|---|---|---|
+| 1 | 1 | **SISD** | Máquina Von Neumann clássica |
+| 1 | Múltiplos | **SIMD** | Supercomputador vetorial, processador de array, GPU |
+| Múltiplos | 1 | **MISD** | Possivelmente nenhum (talvez pipeline) |
+| Múltiplos | Múltiplos | **MIMD** | Multiprocessador, multicomputador |
+
+- **SIMD** subdivide-se em: processadores vetoriais (pipeline interno) e processadores de array (ILLIAC IV — unidade mestre transmite instrução para múltiplas ULAs)
+- **MIMD** subdivide-se em: [[Multiprocessadores]] (UMA, NUMA, COMA) e [[Multicomputadores e Clusters]] (MPP, cluster)
+- GPUs modernas seguem modelo SIMD — denominadas **GPGPUs** quando usadas para computação geral
+
+---
+
+---
+
+## Programação concorrente em nível de aplicação (CS:APP Cap. 12)
+
+Programas que usam concorrência no nível de aplicação são **programas concorrentes**. Três abordagens principais:
+
+| Abordagem | Mecanismo | Compartilhamento de dados | Overhead |
+|---|---|---|---|
+| **Processos** | `fork()` + IPC | Difícil — espaços separados | Alto (criação + IPC) |
+| **Multiplexação de IO** | `select()` — processo único | Fácil — mesmo espaço | Zero (sem context switch) |
+| **Threads** | Pthreads — processo único | Fácil — mesmo espaço | Baixo |
+
+- **Processos:** kernel escalona; espaços de endereçamento separados → requerem IPC explícito. Isolamento robusto.
+- **[[Multiplexação de IO]]:** aplicação escalona explicitamente; fluxos como máquinas de estado; processo único; não explora multicore.
+- **[[Thread]]:** híbrido — kernel escalona, compartilham endereçamento; thread context switch mais rápido que processo; pool de pares.
+
+> [!note] Programas paralelos ⊂ programas concorrentes
+> Todo programa paralelo é concorrente, mas nem todo concorrente é paralelo. Concorrência: múltiplos fluxos lógicos. Paralelismo: fluxos executam em múltiplos processadores simultaneamente.
+
+---
+
+## Métricas de desempenho de programas paralelos
+
+### Speedup e eficiência
+
+$$S_p = \frac{T_1}{T_p}$$
+
+onde $p$ = número de núcleos, $T_k$ = tempo de execução em $k$ núcleos.
+
+| Métrica | Fórmula | Significado |
+|---|---|---|
+| **Speedup absoluto** | $S_p = T_{seq} / T_p$ | $T_1$ = versão sequencial; medida mais fiel |
+| **Speedup relativo** | $S_p = T_1^{par} / T_p$ | $T_1$ = versão paralela em 1 núcleo; pode inflar resultado |
+| **Eficiência** | $E_p = S_p / p$ | % de utilização dos núcleos; alta → menos sync overhead |
+
+**Exemplo (psum-local, 4 núcleos, n = 2³¹):**
+
+| Threads | $T_p$ (s) | $S_p$ | $E_p$ |
+|---|---|---|---|
+| 1 | 1.06 | 1.0 | 100% |
+| 2 | 0.54 | 1.9 | 98% |
+| 4 | 0.28 | 3.8 | 95% |
+| 8 | 0.29 | 3.7 | 91% |
+
+Acima de 4 threads (= número de núcleos), overhead de context switching degrada desempenho. Programas paralelos frequentemente escritos com **uma thread por núcleo**.
+
+### Lição sobre sincronização
+
+Sincronização com mutex tem custo alto relativo a uma operação de memória. Versão `psum-mutex` (P/V em cada iteração) é ~50× mais lenta que `psum-local` (acumula em variável local, sincroniza só ao final).
+
+**Regra:** minimize sincronização. Use variáveis locais para acumulação parcial; sincronize apenas quando necessário.
+
+### Strong vs. Weak scaling
+
+| Tipo | Definição | Uso típico |
+|---|---|---|
+| **Strong scaling** | Problema de tamanho fixo; aumenta núcleos | Aplicações real-time, processamento de sinal |
+| **Weak scaling** | Dobra problema e núcleos; mantém trabalho por núcleo constante | Simulações científicas (mais núcleos = problemas maiores) |
+
+---
+
 ## Ver também
+- [[Multithreading no Chip]] — granulação fina, grossa, SMT, hyperthreading
+- [[Multiprocessadores]] — UMA, NUMA, COMA, crossbar, rede ômega, coerência
+- [[Multicomputadores e Clusters]] — MPPs (BlueGene, Red Storm), clusters, MPI, DSM, Linda, Orca
+- [[Coerência de Cache]] — protocolo MESI, snooping, write-back
+- [[Redes de Interconexão]] — topologias, métricas, hipercubo, toro
 - [[Desempenho do Processador]] — cache, previsão de desvios, superescalar, OoO, HT, clock dinâmico
 - [[Multitarefa]] — timeslicing, TSS, preemptiva vs. cooperativa; multitarefa ≠ multicore
-- [[Processo]] — abstração de processo e threads
+- [[Processo]] — abstração de processo e threads; servidor concorrente baseado em processos
+- [[Thread]] — Pthreads, thread safety, reentrância, races, deadlocks
+- [[Semáforo]] — P/V, mutex, produtor-consumidor, leitores-escritores, grafos de progresso
+- [[Multiplexação de IO]] — select(), programação event-driven, Node.js/nginx
 - [[Processador]] — onde ILP e SIMD são implementados
 - [[Lei de Amdahl]] — limite teórico dos ganhos de paralelismo
 - [[RISC e CISC]] — superescalar como evolução do RISC

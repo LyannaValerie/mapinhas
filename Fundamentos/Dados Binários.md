@@ -143,4 +143,5 @@ Para o [[Computador]], qualquer dado — texto, imagem, vídeo, áudio, instruç
 - [[Linguagem de Máquina]]
 - [[Palavras Binárias]] — nibble, byte, word, dword, qword; MSB/LSB como bytes
 - [[Hexadecimal]] — representação compacta de binário; notações de base ($, 0x); padding; overflow
+- [[Conversão de Bases]] — algoritmos de conversão decimal↔binário, agrupamento octal/hex
 - [[Unidades Métricas]] — como KB/MB/GB se relacionam com o sistema binário

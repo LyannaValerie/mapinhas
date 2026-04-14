@@ -62,10 +62,54 @@ Além das flags de status (CF, PF, AF, ZF, SF, OF) há a flag de controle **DF**
 
 Ver [[Registradores x86#Registrador de Flags — EFLAGS / RFLAGS]] para o mapa completo de todos os bits.
 
-## Ver também
+## Condition Codes x86-64 — Semântica Aritmética
+
+Em x86-64, CF, ZF, SF e OF são atualizados como efeito colateral das instruções aritméticas e lógicas. A instrução **`leaq`** é exceção: nunca altera flags (propositalmente — calcula endereços).
+
+### Como as flags são definidas
+
+Dado `t = a + b` (ou operação equivalente):
+
+| Flag | Condição de ativação |
+|---|---|
+| **CF** (Carry) | Carry/borrow no bit mais significativo — detecta overflow **sem sinal** |
+| **ZF** (Zero) | `t == 0` |
+| **SF** (Sign) | `t < 0` (bit mais significativo = 1) |
+| **OF** (Overflow) | Overflow em complemento de dois — `(a>0 && b>0 && t<0) \|\| (a<0 && b<0 && t>=0)` |
+
+Para operações lógicas (`and`, `or`, `xor`): CF e OF são zerados; ZF e SF refletem o resultado.
+
+### Instruções que modificam flags sem gravar resultado
+
+| Instrução | Equivale a | Uso típico |
+|---|---|---|
+| `cmp a, b` | `b - a` (descarta resultado) | Comparação: seta CF/ZF/SF/OF como subtração |
+| `test a, b` | `a & b` (descarta resultado) | Verificar bit / checar se registrador é zero (`test %rax, %rax` → ZF=1 se zero) |
+
+### Instruções `SET` — leitura de condição para byte
+
+`SET`_cc_ grava 0 ou 1 num registrador de 1 byte conforme a condição _cc_. Exemplos:
+
+| Instrução | Condição | Flags |
+|---|---|---|
+| `sete` / `setz` | `==` / zero | ZF |
+| `setne` / `setnz` | `!=` / não-zero | ~ZF |
+| `sets` | negativo | SF |
+| `setg` / `setnle` | `>` (com sinal) | ~(SF^OF) & ~ZF |
+| `setl` / `setnge` | `<` (com sinal) | SF^OF |
+| `seta` / `setnbe` | `>` (sem sinal) | ~CF & ~ZF |
+| `setb` / `setnae` | `<` (sem sinal) | CF |
+
+Para obter inteiro de largura maior: combinar com `movzbl` (zero-extends o byte para 32/64 bits).
+
+---
+
+
 - [[Registrador]]
 - [[Registradores x86]] — EFLAGS/RFLAGS com mapa completo de bits
 - [[Processador]]
 - [[Linguagem Assembly]] — instruções de desvio condicional consultam flags
+- [[Modos de Endereçamento]] — leaq não altera flags
+- [[Convenção de Chamada x86-64]] — flags volatile entre chamadas (caller-saved implícito)
 - [[Sistemas de Representação]] — representação de números negativos
 - [[Transmissão de Dados]] — flag de paridade e detecção de erros

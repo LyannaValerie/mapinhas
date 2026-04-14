@@ -84,7 +84,7 @@ Formatos de dado que o hardware da [[ISA]] reconhece e manipula diretamente com 
 
 ### Tipos Numéricos Suportados em Hardware
 
-| Tipo | [[Intel x86\|Core i7]] | [[ARM]] OMAP4430 | [[AVR]] ATmega168 |
+| Tipo | [[Intel x86|Core i7]] | [[ARM]] OMAP4430 | [[AVR]] ATmega168 |
 |---|---|---|---|
 | Inteiro 8 bits com sinal | ✓ | ✓ | ✓ |
 | Inteiro 16 bits com sinal | ✓ | ✓ | ✓ (pares de reg.) |

@@ -91,7 +91,7 @@ As informações de cada segmento (chamadas **descritores de segmento**) são ar
 |---|---|---|---|
 | **Global Descriptor Table** | GDT | 1 (única) | Segmentos acessíveis por todos os programas |
 | **Local Descriptor Table** | LDT | Uma por programa | Área de memória de cada programa |
-| **Interrupt Descriptor Table** | IDT | 1 (única) | Handlers de [[Interrupção\|interrupções]] e exceções |
+| **Interrupt Descriptor Table** | IDT | 1 (única) | Handlers de [[Interrupção|interrupções]] e exceções |
 
 O endereço e limite de cada tabela são armazenados nos registradores [[Registradores x86#Registradores de Gerenciamento de Memória|GDTR, LDTR e IDTR]].
 

@@ -130,7 +130,7 @@ Após descarga: ambas as placas viram sulfato de chumbo; eletrólito vira basica
 | Sujeito       | Predicado         | Objeto                        |
 | ------------- | ----------------- | ----------------------------- |
 | Li-Ion        | usada em          | Notebooks, smartphones        |
-| VRLA/SLA      | usada em          | [[Equipamentos de Proteção#Nobreaks\|Nobreaks]], automóveis |
+| VRLA/SLA      | usada em          | [[Equipamentos de Proteção#Nobreaks|Nobreaks]], automóveis |
 | Ni-Cd         | apresenta         | efeito memória grave          |
 | Li-Ion        | não tolera        | descarga abaixo de tensão mínima |
 | Taxa C        | mede              | velocidade de descarga        |

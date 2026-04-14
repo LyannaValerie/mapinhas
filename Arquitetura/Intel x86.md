@@ -41,7 +41,7 @@ Família de [[ISA|arquiteturas de conjunto de instruções]] compatíveis entre 
 | **80286** | 1982 | 8–12 | 134.000 | 16 MB | Proteção de memória |
 | **80386** | 1985 | 16–33 | 275.000 | 4 GB | Primeiro de **32 bits** |
 | **80486** | 1989 | 25–100 | 1,2 M | 4 GB | FPU + [[Cache]] L1 (8 KB) + suporte multiprocessador |
-| **Pentium** | 1993 | 60–233 | 3,1 M | 4 GB | Dois [[Pipeline\|pipelines]]; depois MMX |
+| **Pentium** | 1993 | 60–233 | 3,1 M | 4 GB | Dois [[Pipeline|pipelines]]; depois MMX |
 | **Pentium Pro** | 1995 | 150–200 | 5,5 M | 4 GB | 5 instruções/ciclo; [[Cache]] L1+L2 |
 | **Pentium II** | 1997 | 233–450 | 7,5 M | 4 GB | Pentium Pro + MMX |
 | **Pentium III** | 1999 | 650–1.400 | 9,5 M | 4 GB | Instruções SSE (gráficos 3D) |

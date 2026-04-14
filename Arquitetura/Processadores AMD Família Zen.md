@@ -78,7 +78,7 @@ Zen foi projetada do zero, retomando os conceitos da família Hammer e abandonan
 - **Cache de macroinstruções** (Op Cache): ativado quando previsão de desvios detecta desvio; retorna para decodificadores quando instrução ausente. Entrega **8 macros/ciclo** (2× os decodificadores). Aumenta desempenho E reduz consumo ao evitar busca+decodificação
 - Fila de macroinstruções: **dividida em 2 com SMT ativo**
 - **MSROM** (microcódigo): localizado após fila de macroinstruções; envia direto para RCU
-- **SEM** (Stack Engine Memfile): executa instruções de pilha sem usar AGU; ver [[Arquitetura/Pilha]]
+- **SEM** (Stack Engine Memfile): executa instruções de pilha sem usar AGU; ver [[Pilha]]
 - Despacho: até **6 macros/ciclo** (FP: máx **4 macros/ciclo** nas µarqs até Zen 2)
 - **RCU** (Retire Control Unit): rastreia execução, controla renomeamento e exceções; contém ROB
 - **ROB**: **192 entradas** (96/thread) — AMD chama de "fila de retirada"
@@ -535,5 +535,5 @@ Mesma pastilha Dali do Athlon. Precision Boost presente. 1 ou 2 canais de memór
 - [[Cache]] — L3 CCX; NSQ pre-queue FP; chiplet CCD 7nm vs IOD 12nm
 - [[Desempenho do Processador]] — Precision Boost, XFR, PBO, SMT, SEM, Op Cache
 - [[Fabricação de Chips]] — chiplet; 14→12→7→6→5nm; AM5 LGA vs AM4 PGA
-- [[Arquitetura/Pilha]] — SEM executa instruções de pilha sem usar AGU
+- [[Pilha]] — SEM executa instruções de pilha sem usar AGU
 - [[Concorrência e Paralelismo]] — SMT, NUMA/UMA, estrutura modular

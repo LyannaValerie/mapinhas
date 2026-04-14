@@ -95,6 +95,17 @@ O processador sempre consulta a cache antes da RAM. Se a palavra estiver na cach
 - **Miss:** dado ausente → busca na RAM + carrega linha inteira no cache
 - **Taxa de acerto (hit rate h):** 80–99% na prática
 
+### Tipos de Miss
+
+| Tipo | Causa |
+|---|---|
+| **Cold miss** (frio/compulsório) | Cache vazia; primeiro acesso a qualquer bloco — inevitável |
+| **Conflict miss** (conflito) | Cache tem espaço, mas blocos mapeiam para o mesmo conjunto |
+| **Capacity miss** (capacidade) | Working set maior que o tamanho da cache |
+
+- **Conflict misses** são comuns em mapeamento direto (E=1) com arrays cujo tamanho é potência de 2. Sintoma: *thrashing* — cache alterna entre os mesmos blocos sem progredir.
+- **Capacity misses** surgem quando o laço itera sobre dados que não cabem na cache; solução: blocking/tiling.
+
 ### Fórmula do Tempo de Acesso Médio
 
 Sejam:
@@ -149,6 +160,41 @@ Com write-back, o cache pode ter dados mais recentes que a RAM. Dispositivos que
 - Divide o cache em N vias independentes (ex: 4-way = 4 × 64 KiB num cache de 256 KiB).
 - Cada via funciona como mapeamento direto, mas até N linhas de mesmo número podem coexistir.
 - Equilibra simplicidade de diretório com flexibilidade de armazenamento.
+
+### Organização Formal — Tupla (S, E, B, m)
+
+Cache completamente descrito por $(S, E, B, m)$:
+
+| Parâmetro | Significado |
+|---|---|
+| $S = 2^s$ | Número de conjuntos (sets) |
+| $E$ | Linhas por conjunto (associatividade) |
+| $B = 2^b$ | Tamanho do bloco em bytes |
+| $m$ | Bits no endereço físico |
+
+Capacidade útil: $C = S \times E \times B$ bytes (não conta bits de tag e valid).
+
+Cada endereço de $m$ bits se divide em três campos:
+
+```
+[  tag (t bits)  |  set index (s bits)  |  block offset (b bits)  ]
+ m−1 ←                                                        → 0
+```
+
+Onde $t = m - (s + b)$. Cada linha armazena: `[valid (1 bit) | tag (t bits) | data (B bytes)]`.
+
+**Acesso em 3 etapas:**
+1. **Set selection:** bits `s` selecionam o conjunto
+2. **Line matching:** busca linha com `valid=1` e `tag` igual
+3. **Word extraction:** bits `b` (block offset) localizam o byte inicial
+
+**Por que bits do meio como set index?** Bits de alta ordem como índice concentram blocos adjacentes no mesmo conjunto → mau uso da cache. Bits do meio distribuem blocos consecutivos em conjuntos diferentes → melhor aproveitamento.
+
+#### Thrashing em Mapeamento Direto
+
+Com E=1, arrays cujo tamanho é potência de 2 frequentemente mapeiam ao mesmo conjunto. Ex: `float x[8]` em addr 0 e `float y[8]` em addr 32 com cache de 32 bytes/2 sets → x[i] e y[i] mapeiam sempre ao mesmo set → thrashing a cada iteração do produto escalar.
+
+**Solução:** padding — adicionar B bytes extras ao final do array para deslocar o mapeamento.
 
 ## Cache L1 Dividido vs. Unificado
 
@@ -216,9 +262,37 @@ Complementa a política de escrita:
 
 Write-allocate é preferível quando há localidade temporal na escrita (padrão mais comum).
 
+## Métricas de Desempenho
+
+| Métrica | Definição |
+|---|---|
+| **Miss rate** | # misses / # referências totais |
+| **Hit rate** | 1 − miss rate |
+| **Hit time** | Ciclos para entregar dado da cache ao CPU (L1: ~4 ciclos) |
+| **Miss penalty** | Ciclos adicionais por miss (L2: ~10; L3: ~50; RAM: ~200) |
+
+### Impacto dos Parâmetros
+
+| Parâmetro | Aumentar → efeito |
+|---|---|
+| Tamanho da cache | ↑ hit rate, mas ↑ hit time (hardware maior = mais lento) |
+| Tamanho do bloco | ↑ localidade espacial; mas com poucos blocos → ↓ temporal |
+| Associatividade (E) | ↓ conflict misses; ↑ custo de hardware e hit time |
+| Write-back | Menos transferências que write-through; requer dirty bit |
+
+### Cache Intel Core i7 Haswell — Referência
+
+| Tipo | Nível | C | E | B | Latência |
+|---|---|---|---|---|---|
+| L1 i-cache | Por núcleo | 32 KB | 8-way | 64 B | 4 ciclos |
+| L1 d-cache | Por núcleo | 32 KB | 8-way | 64 B | 4 ciclos |
+| L2 unificado | Por núcleo | 256 KB | 8-way | 64 B | 10 ciclos |
+| L3 unificado | Compartilhado | 8 MB | 16-way | 64 B | 40–75 ciclos |
+
 ## Ver também
 - [[Desempenho do Processador]] — cache como uma das principais tecnologias de desempenho
 - [[Hierarquia de Memória]] — posicionamento da cache na hierarquia completa L0–L6
+- [[Otimização de Código#Localidade e Cache]] — como escrever código cache-friendly
 - [[Processador]]
 - [[Memória]]
 - [[Registrador]]

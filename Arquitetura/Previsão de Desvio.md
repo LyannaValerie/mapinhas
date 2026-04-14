@@ -26,14 +26,17 @@ Técnica usada por processadores com [[Pipeline]] para especular o caminho tomad
 
 Não usa histórico — decide na compilação ou por heurística fixa:
 
-| Estratégia | Regra |
-|---|---|
-| **Sempre não tomado** | continua execução sequencial; simples de implementar |
-| **Sempre tomado** | prevê salto; melhor para laços |
-| **Baseada em direção** | desvio para trás → tomado (laço); para frente → não tomado (if) |
-| **Por profiling** | compilador usa dados de execuções anteriores para anotar hints |
+| Estratégia | Sigla | Taxa de acerto típica | Regra |
+|---|---|---|---|
+| **Sempre tomado** | AT | ~60% | prevê salto sempre; melhor para laços |
+| **Nunca tomado** | NT | ~40% | continua sequencial; simples |
+| **Backward Taken, Forward Not Taken** | BTFNT | ~65% | desvio para endereço menor → tomado; maior → não tomado |
+| **Por profiling** | — | variável | compilador anota hints com dados de execuções reais |
 
-A heurística de direção (backward → taken) acerta ~65–70% em código típico.
+> [!note] BTFNT
+> Exploita o fato de que laços têm desvio backward (fechamento do laço) e são executados muitas vezes. Ifs geralmente são forward e menos frequentemente tomados.
+
+A heurística de direção (BTFNT) acerta ~65% em código típico.
 
 ## Previsão Dinâmica de 1 Bit
 
@@ -120,5 +123,5 @@ Aumenta precisão capturando padrões como "if A então geralmente B".
 
 - [[Pipeline]] — hazards de controle que a previsão mitiga
 - [[Execução Fora de Ordem]] — previsão é pré-requisito para execução especulativa
-- [[Arquitetura/Caminho de Dados]] — onde a resolução do desvio acontece (estágio execute)
+- [[Caminho de Dados]] — onde a resolução do desvio acontece (estágio execute)
 - [[ARM]] — Cortex-A9 usa previsão dinâmica de 2 bits

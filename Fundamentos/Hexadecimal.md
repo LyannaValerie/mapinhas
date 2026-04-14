@@ -121,7 +121,7 @@ O preenchimento garante que o valor ocupe exatamente o espaço disponível sem a
 | Estratégia | Quando usada |
 |---|---|
 | **Erro de overflow** | [[Processador]] ao tentar armazenar em [[Registrador]] com menos bits |
-| **Armazenamento em posição seguinte** | Dados maiores que a [[Palavras Binárias\|word]] do sistema; overflow guardado no endereço de memória adjacente |
+| **Armazenamento em posição seguinte** | Dados maiores que a [[Palavras Binárias|word]] do sistema; overflow guardado no endereço de memória adjacente |
 | **Múltiplas transferências** | Dado de 128 bits em barramento de 32 bits → 4 transferências sequenciais |
 | **Descarte dos bits excedentes** | Algoritmos de soma de verificação (checksum) — bits além do espaço são ignorados ou somados de volta ao valor |
 
