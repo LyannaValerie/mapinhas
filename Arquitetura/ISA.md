@@ -22,6 +22,28 @@ Nível 2 da [[Níveis de Abstração|organização estruturada de computadores]]
 - ISA → base para → [[Linguagem Assembly]] (nível 4)
 - ISA → linguagem numérica → usada por programadores de sistemas, não de aplicações
 
+## Mapa simbólico
+```mapa
+# Nível de abstração
+ISA ≺ [[Níveis de Abstração]]                       : nível 2
+[[Linguagem Assembly]] ≺ ISA                        : nível 4 sobre nível 2
+ISA ≺ Microarquitetura                              : executada por nível 1
+
+# Taxonomia de famílias
+x86 ∈ CISC
+ARM ∈ RISC
+AVR ∈ RISC
+CISC ∨ RISC ⊑ ISA
+
+# Relações funcionais
+ISA ⇒ [[Linguagem Assembly]]                        : base para
+ISA ⊳ Compilador                                    : contrato
+ISA ⊗ {ModeloDeMemória, Registradores, [[Tipos de Dados ISA]], [[Formatos de Instrução]], [[Modos de Endereçamento]]}
+```
+
+> [!note] Legenda rápida
+> `≺` nível abaixo · `∈` pertence a · `⊑` subtipo · `⊗` composto por. Ver [[Linguagem Simbólica|MAPA]].
+
 ## Contexto
 
 > [!info] O que os manuais de "linguagem de máquina" descrevem
