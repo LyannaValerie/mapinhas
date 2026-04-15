@@ -18,6 +18,17 @@ Máquina de processamento de dados: recebe dados de entrada, processa-os e os de
 - Computador → derivado de → [[Modelo de Von Neumann]]
 - Computador → executa → [[Programa Armazenado]]
 
+## Mapa simbólico
+```mapa
+Computador ⊗ {[[Hardware]], [[Software]]}
+Computador ⊳ [[Dados Binários]]
+Computador ⊑ [[Modelo de Von Neumann]]
+Computador ⊳ [[Programa Armazenado]]                : executa
+```
+
+> [!note] Legenda rápida
+> `⊗` composto por · `⊳` acessa/usa · `⊑` subtipo. Ver [[Linguagem Simbólica|MAPA]] e [[HOW-TO]].
+
 ## Funcionamento Geral
 Do ponto de vista interno, qualquer operação — jogos, navegação na Internet, planilhas, vídeos, impressão, transferência de arquivos — resume-se ao mesmo ciclo:
 

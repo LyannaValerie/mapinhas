@@ -24,6 +24,27 @@ Arquitetura de computador criada por **John von Neumann** em **1945**, durante o
 - Modelo de Von Neumann → substituiu → [[Computador de Programa Fixo]]
 - Modelo de Von Neumann → composto por → [[ULA]], [[Processador#Central de Controle|CC]], Memória, Entrada/Saída, Gravação
 
+## Mapa simbólico
+```mapa
+# Sucessão histórica
+[[Computador de Programa Fixo]] → ModeloVonNeumann  : 1945
+[[EDVAC]] ⇒ ModeloVonNeumann                        : originou
+
+# Composição da arquitetura
+ModeloVonNeumann ⊗ {[[ULA]], CC, [[Memória]], Entrada, Saída, [[Meio Externo de Gravação]]}
+
+# Viabilizações
+ModeloVonNeumann ⇒ [[Programa Armazenado]]
+ModeloVonNeumann ⇒ [[Computador]]
+ModeloVonNeumann ⇒ ([[Hardware]] ∧ ¬[[Software]])   : separação conceitual
+
+# Equivalência terminológica
+[[ULA]] ≡ CA[VonNeumann]
+```
+
+> [!note] Legenda rápida
+> `→` sucedido por · `⇒` viabiliza · `⊗` composto por · `≡` equivale a. Ver [[Linguagem Simbólica|MAPA]].
+
 ## Componentes da Arquitetura
 
 | Componente original (Von Neumann) | Equivalente moderno |
