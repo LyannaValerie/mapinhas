@@ -181,6 +181,36 @@ Dois modelos clássicos de organização de computador com um único barramento 
 > [!info] Qual tem melhor desempenho?
 > O sistema de **múltiplos barramentos** tem potencial superior porque elimina a contenção entre tráfego CPU-memória e tráfego de E/S. O barramento único cria um gargalo inevitável — especialmente em sistemas com E/S intensiva.
 
+## Evolução dos Barramentos de E/S em PCs
+
+Histórico dos barramentos de expansão que conectavam dispositivos de E/S ao processador.
+
+| Padrão | Ano | Clock | Largura de dados | Banda máx | Notas |
+|---|---|---|---|---|---|
+| **ISA** (8 bits) | 1981 | 8 MHz | 8 bits | 8 MB/s | IBM PC original |
+| **ISA** (16 bits) | 1984 | 8 MHz | 16 bits | 16 MB/s | IBM AT; dominou até início dos 90s |
+| **EISA** | 1988 | 8,33 MHz | 32 bits | 33 MB/s | Compatível com ISA; para servidores |
+| **MCA** | 1987 | 10 MHz | 32 bits | 40 MB/s | Proprietário IBM; incompatível com ISA |
+| **VL-Bus (VESA)** | 1992 | 33 MHz | 32 bits | 133 MB/s | Extensão do barramento local do 486 |
+| **PCI** | 1993 | 33–66 MHz | 32–64 bits | 266–533 MB/s | Independente de processador; padrão até ~2005 |
+| **PCI-X** | 1998 | 66–133 MHz | 64 bits | até 1 GB/s | PCI extendido para servidores |
+| **AGP** | 1997 | 66 MHz | 32 bits | 266–2133 MB/s | Ponto a ponto dedicado para GPU |
+| **PCIe** | 2003 | — | Ponto a ponto em série | ver [[Slots de Expansão]] | Substitui PCI; padrão atual |
+
+> [!warning] PCI ≠ PCIe
+> PCI era barramento paralelo compartilhado (múltiplos dispositivos dividem o mesmo canal). PCIe é conexão ponto a ponto serial — arquitetura completamente diferente. "Barramento PCI Express" é equívoco comum. Ver [[Slots de Expansão]].
+
+### Por que o PCI substituiu o ISA?
+
+ISA limitava-se a 8 MHz para manter compatibilidade com periféricos antigos. Com CPUs atingindo 66–100 MHz nos anos 90, o gargalo de E/S tornou-se inaceitável. PCI introduziu:
+- **Independência do clock da CPU**: opera a clock próprio
+- **Auto-configuração (Plug and Play)**: registradores de configuração padronizados
+- **Compatibilidade com múltiplos processadores**: Intel, PowerPC, Alpha
+
+### Por que o PCIe substituiu o PCI?
+
+Barramentos paralelos enfrentam *clock skew* — bits transmitidos em paralelo chegam em momentos ligeiramente diferentes por variações nos fios. Acima de ~100 MHz, o skew torna a sincronização impraticável. Solução: **serial point-to-point** com clock embutido no sinal (8b/10b, 128b/130b).
+
 ## Ver também
 - [[Slots de Expansão]] — PCIe: pistas, versões, slots, M.2
 - [[Placa-mãe]]
@@ -191,3 +221,4 @@ Dois modelos clássicos de organização de computador com um único barramento 
 - [[Rede]] — adaptador de rede conecta-se ao barramento de E/S como qualquer dispositivo
 - [[Transmissão de Dados]] — modos simplex/half-duplex/full-duplex aplicam-se às linhas do barramento (PCI Express = simplex duplo; SATA = half-duplex)
 - [[Portas Lógicas#Porta Tri-State]] — tri-state permite múltiplos dispositivos compartilhar linhas do barramento
+- [[Modem e DSL]] — telecomunicações via linha telefônica e cabo coaxial
