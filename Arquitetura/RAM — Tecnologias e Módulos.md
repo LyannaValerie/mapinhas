@@ -340,3 +340,4 @@ Armazena: clocks suportados, temporizações, fabricante, modelo.
 - [[Processadores AMD Família Zen]] — EPYC com HBM; chiplet I/O em 12nm (DRAM-like process)
 - [[Processadores Intel Híbridos]] — Lakefield com LPDDR4X on-package
 - [[Processadores AMD Família Bobcat]] — PS4/Xbox One usam Jaguar + GDDR5
+- [[Organização de Chips de Memória]] — pinos CS/RD/OE, combinação de chips, decodificador de endereços
