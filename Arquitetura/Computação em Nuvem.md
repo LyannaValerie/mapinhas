@@ -15,7 +15,7 @@ date: 2026-04-06
 Modelo em que dados e processamento residem em **data centers** remotos (a "nuvem"), acessíveis por dispositivos simples (PC, tablet, smartphone) a partir de qualquer lugar. Denominado "mainframe 2.0" — retorno ao paradigma centralizado, mas em escala massiva distribuída.
 
 ## Relações (SPO)
-- Computação em Nuvem → baseada em → [[#Cluster|clusters]] e data centers
+- Computação em Nuvem → baseada em → [[Multicomputadores e Clusters|clusters]] e data centers
 - Computação em Nuvem → representa → retorno à centralização (após era do PC descentralizado)
 - Computação em Nuvem → substitui → armazenamento local de dados no dispositivo do usuário
 - Computação em Nuvem → análoga historicamente a → modelo de mainframe + terminais (anos 1960)

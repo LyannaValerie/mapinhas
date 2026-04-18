@@ -173,7 +173,7 @@ Programa usa → endereço linear (lógico)
               endereço físico (posição real na RAM)
 ```
 
-A **unidade de paginação** do processador converte automaticamente endereços lógicos em físicos. Os registradores [[Registradores x86#CR3|CR3]] (endereço da tabela de páginas) e **CR2** (endereço da última page fault) são a interface entre o hardware de paginação e o SO.
+A **unidade de paginação** do processador converte automaticamente endereços lógicos em físicos. Os registradores [[Registradores x86#Registradores de Controle (CR)|CR3]] (endereço da tabela de páginas) e **CR2** (endereço da última page fault) são a interface entre o hardware de paginação e o SO.
 
 Ver [[Memória Virtual]] para a perspectiva do sistema operacional (espaço de endereçamento por processo, page faults, heap/stack).
 

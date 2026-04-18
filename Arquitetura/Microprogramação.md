@@ -74,7 +74,7 @@ Com o passar do tempo, os microprogramas tornaram-se cada vez maiores e mais len
 > [!info] Estado atual
 > Processadores modernos fazem as duas coisas: usam microprogramação para traduzir instruções complexas em microcódigo interno simples, executado diretamente no hardware. A fronteira entre hardware e software é **arbitrária e muda constantemente**: o software de hoje pode ser o hardware de amanhã, e vice-versa.
 
-Ver [[História da Computação#Marcos]] para exemplos de máquinas RISC (MIPS 1985, SPARC 1987).
+Ver [[História da Computação#Marcos do Computador Digital Moderno]] para exemplos de máquinas RISC (MIPS 1985, SPARC 1987).
 
 ## Mic-1: Microarquitetura de Referência (Tanenbaum)
 
@@ -156,4 +156,4 @@ MAIN3  if (Z) goto T; else goto F
 - [[História da Computação]]
 - [[Caminho de Dados]] — datapath do Mic-1
 - [[Pipeline]] — evolução Mic-3/Mic-4
-- [[Fundamentos/Pilha]] — SP/LV como registradores do datapath
+- [[Pilha — IJVM]] — SP/LV como registradores do datapath

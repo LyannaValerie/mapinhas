@@ -119,7 +119,7 @@ No Unix/Linux, o comando `gcc` orquestra todas as fases automaticamente:
 gcc -o hello hello.c
 ```
 
-Parte do projeto [[Linguagem C#GNU|GNU]] (Richard Stallman). Suporta múltiplas linguagens: C, C++, Fortran, Java, Pascal, Ada, Objective-C.
+Parte do projeto [[Linguagem C#GNU — as ferramentas de C para o mundo livre|GNU]] (Richard Stallman). Suporta múltiplas linguagens: C, C++, Fortran, Java, Pascal, Ada, Objective-C.
 
 ---
 

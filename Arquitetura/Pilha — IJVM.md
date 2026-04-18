@@ -1,15 +1,15 @@
 ---
-title: Pilha (Stack)
-tags:
-  - fundamentos
-  - arquitetura
-  - memória
+title: Pilha — IJVM
 aliases:
-  - Stack
-  - Pilha de Execução
+  - Pilha IJVM
+  - pilha de execução IJVM
+  - IJVM stack
+tags:
+  - computação/arquitetura
+date: 2026-04-18
 ---
 
-# Pilha (Stack)
+# Pilha — IJVM
 
 Estrutura de dados LIFO usada pelo processador para gerenciar chamadas de procedimento, variáveis locais e operações intermediárias.
 

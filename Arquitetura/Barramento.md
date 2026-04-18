@@ -38,7 +38,7 @@ O tamanho da palavra determina: quantidade máxima de memória endereçável, ta
 
 ## Barramento vs. Conexão Ponto a Ponto
 
-Um **barramento** é um canal **compartilhado** por múltiplos dispositivos. Já uma **conexão ponto a ponto** é um canal **dedicado** exclusivamente a dois dispositivos, oferecendo maior desempenho por eliminar contenção e arbitragem. Ver [[Transmissão de Dados#Topologia do Canal Barramento vs. Ponto a Ponto|Transmissão de Dados § Topologia]].
+Um **barramento** é um canal **compartilhado** por múltiplos dispositivos. Já uma **conexão ponto a ponto** é um canal **dedicado** exclusivamente a dois dispositivos, oferecendo maior desempenho por eliminar contenção e arbitragem. Ver [[Transmissão de Dados#Topologia do Canal: Barramento vs. Ponto a Ponto|Transmissão de Dados § Topologia]].
 
 ### Arbitragem
 Em um barramento, apenas um dispositivo pode transmitir por vez. Portanto, é necessário:

@@ -17,7 +17,7 @@ date: 2026-04-07
 # Tipos de Dados C
 
 ## Definição
-C fornece uma **hierarquia de tipos de dados**, distinguindo-se das linguagens anteriores ([[Linguagem C#Linhagem histórica BCPL → B → C|BCPL e B]]) que eram *typeless*. A escolha do tipo determina a representação binária, o tamanho em [[Memória]] e as operações disponíveis.
+C fornece uma **hierarquia de tipos de dados**, distinguindo-se das linguagens anteriores ([[Linguagem C#Linhagem: BCPL → B → C|BCPL e B]]) que eram *typeless*. A escolha do tipo determina a representação binária, o tamanho em [[Memória]] e as operações disponíveis.
 
 ## Relações (SPO)
 - Tipos de Dados C → mapeiam para → representações em [[Sistemas de Representação]] (signed, unsigned, IEEE 754)

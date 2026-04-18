@@ -80,7 +80,7 @@ Bits 31–24  |  Bits 23–16  |  Bits 15–8  |  Bits 7–0
 | **Byte menos significativo** | **LSB** (maiúsculo) | Byte de menor peso — posição mais à direita |
 
 > [!warning] Não confunda com msb/LSB de bits
-> **msb/lsb** (minúsculos) = bit mais/menos significativo — ver [[Dados Binários#MSB e LSB]].
+> **msb/lsb** (minúsculos) = bit mais/menos significativo — ver [[Dados Binários#MSB e LSB — bit mais e menos significativo]].
 > **MSB/LSB** (maiúsculos) = **byte** mais/menos significativo.
 > Os termos se estendem para lsb/LSB e msb/MSB igualmente.
 
