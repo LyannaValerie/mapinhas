@@ -99,7 +99,7 @@ Com gcc: `gcc hello.c -o hello`. Ver [[Sistema de Compilação]] para o pipeline
 ## Características
 
 - **Linguagem de sistemas:** acesso direto à [[Memória]], [[Registrador|registradores]] e hardware — recursos indispensáveis para SOs e firmware
-- **Portável:** com o compilador [[#GNU|gcc]], código C pode ser compilado para praticamente qualquer arquitetura ([[Intel x86]], [[ARM]], [[AVR]] etc.)
+- **Portável:** com o compilador [[#GNU — as ferramentas de C para o mundo livre|gcc]], código C pode ser compilado para praticamente qualquer arquitetura ([[Intel x86]], [[ARM]], [[AVR]] etc.)
 - **Base enorme de código:** décadas de sistemas, ferramentas e aplicações escritas em C
 
 ## Controle de fluxo

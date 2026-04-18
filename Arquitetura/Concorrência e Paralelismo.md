@@ -135,7 +135,7 @@ Um design de hardware relativamente simples pode sustentar taxa próxima de **1 
 
 ### Superescalar
 
-[[RISC e CISC#Superescalar|Processadores superescalares]] sustentam taxa **superior a 1 instrução por ciclo**. A maioria dos processadores modernos suporta operação superescalar. Programadores que entendem o modelo superescalar podem escrever código que gera maior grau de ILP.
+[[RISC e CISC#Superescalar e ILP|Processadores superescalares]] sustentam taxa **superior a 1 instrução por ciclo**. A maioria dos processadores modernos suporta operação superescalar. Programadores que entendem o modelo superescalar podem escrever código que gera maior grau de ILP.
 
 ---
 

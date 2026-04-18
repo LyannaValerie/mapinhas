@@ -22,7 +22,7 @@ Arquitetura de computador criada por **John von Neumann** em **1945**, durante o
 - Modelo de Von Neumann → viabiliza → [[Programa Armazenado]]
 - Modelo de Von Neumann → separa → [[Hardware]] e [[Software]]
 - Modelo de Von Neumann → substituiu → [[Computador de Programa Fixo]]
-- Modelo de Von Neumann → composto por → [[ULA]], [[Processador#Central de Controle|CC]], Memória, Entrada/Saída, Gravação
+- Modelo de Von Neumann → composto por → [[ULA]], [[Processador#Central de Controle (CC)|CC]], Memória, Entrada/Saída, Gravação
 
 ## Mapa simbólico
 ```mapa

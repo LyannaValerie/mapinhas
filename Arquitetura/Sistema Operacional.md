@@ -117,7 +117,7 @@ Em agosto de 1991, Linus Torvalds — estudante de pós-graduação finlandês �
 |---|---|
 | **Ponto de partida** | **Minix** — SO desenvolvido por Andrew S. Tanenbaum para fins educacionais |
 | **Ferramentas iniciais** | bash 1.08 e gcc 1.40 portados ainda em agosto de 1991 |
-| **Combinação definitiva** | Kernel Linux + ferramentas [[Linguagem C#GNU\|GNU]] = sistema Unix completo, compatível com POSIX |
+| **Combinação definitiva** | Kernel Linux + ferramentas [[Linguagem C#GNU — as ferramentas de C para o mundo livre|GNU]] = sistema Unix completo, compatível com POSIX |
 | **Abrangência** | Disponível em dispositivos portáteis, PCs, mainframes — um grupo da IBM portou para um relógio de pulso |
 
 > [!info] GNU + Linux

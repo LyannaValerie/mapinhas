@@ -133,7 +133,7 @@ IADD   ; retira dois valores do topo da pilha, soma, empilha resultado
 
 - Formato de instrução mais curto possível (zero endereços)
 - Base da [[Notação Polonesa Invertida]]
-- Ver [[Pilha#Endereçamento de pilha e notação polonesa invertida]]
+- Ver [[Pilha#Notação Polonesa Invertida e Endereçamento de Pilha]]
 
 ---
 

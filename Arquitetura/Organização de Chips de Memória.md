@@ -85,7 +85,7 @@ A19 ──┬──► NOT ──► CS do Banco 0  (ativo quando A19 = 0)
       └────────► CS do Banco 1  (ativo quando A19 = 1)
 ```
 
-Para 4 bancos, usa-se um **decodificador 2:4**: bits A19 e A18 selecionam qual dos 4 sinais CS é ativado. Ver [[Circuitos Combinatórios#Decodificador (Decoder)]].
+Para 4 bancos, usa-se um **decodificador 2:4**: bits A19 e A18 selecionam qual dos 4 sinais CS é ativado. Ver [[Circuitos Combinatórios#Decoder (Decodificador)]].
 
 > [!note] Por que bits de alto ordem?
 > Os bits de alto ordem determinam o **banco** (região do espaço de endereços). Os bits de baixo ordem selecionam a **célula dentro do banco**. Essa divisão é a base do endereçamento de memória hierárquico.

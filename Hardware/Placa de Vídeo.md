@@ -76,7 +76,7 @@ PCIe **x16** (padrão) ou x8. Na GPU integrada: barramento interno ao processado
 ### Processador Gráfico (GPU)
 
 - Centenas ou milhares de unidades de processamento (núcleos/motores gráficos; "núcleos CUDA" na NVIDIA)
-- Clock variável (Dynamic Clock — análogo ao [[Processador#Clock Dinâmico]])
+- Clock variável (Dynamic Clock — análogo ao [[Processador#Clock e Desempenho|Clock Dinâmico]])
 - Uso específico: gráficos (padrão) ou uso geral via GPGPU
 - Pode incluir decodificador/codificador de mídia integrado
 - Fabricantes: AMD, NVIDIA, Intel (retornou em 2022)

@@ -85,7 +85,7 @@ XNOR = NOT(XOR): 1 somente se A = B.
 
 > [!tip] Usos típicos do XOR
 > - Detecção de paridade (bit de paridade)
-> - Soma binária sem carry (ver [[Circuitos Combinatórios#Half-Adder]])
+> - Soma binária sem carry (ver [[Circuitos Combinatórios#Half-Adder (Somador Parcial)]])
 > - Troca de bits (swap sem variável temporária)
 
 ---

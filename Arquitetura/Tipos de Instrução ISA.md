@@ -223,7 +223,7 @@ Em CPUs com reordenação de memória (OoO, cache write-buffer), barreiras imped
 | `LFENCE` | load fence: ordena loads (reads) |
 | `LOCK` (prefixo) | garante atomicidade de RMW (read-modify-write) em barramento |
 
-Ver [[Semântica de memória na ISA|ISA#Semântica de memória]] e [[Concorrência e Paralelismo]] para contexto de uso.
+Ver [[ISA#Semântica de memória]] e [[Concorrência e Paralelismo]] para contexto de uso.
 
 ---
 
