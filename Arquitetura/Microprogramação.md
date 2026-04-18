@@ -156,4 +156,4 @@ MAIN3  if (Z) goto T; else goto F
 - [[História da Computação]]
 - [[Caminho de Dados]] — datapath do Mic-1
 - [[Pipeline]] — evolução Mic-3/Mic-4
-- [[Fundamentos/Pilha]] — SP/LV como registradores do datapath
+- [[Pilha — IJVM]] — SP/LV como registradores do datapath

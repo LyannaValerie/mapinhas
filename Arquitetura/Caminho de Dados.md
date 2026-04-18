@@ -129,4 +129,4 @@ MPC ← próximo endereço (Addr ou JAM)
 - [[ULA]] — unidade que processa os dados
 - [[Registrador]] — elementos de armazenamento do datapath
 - [[Pipeline]] — Mic-3/Mic-4 introduzem latches entre estágios do datapath
-- [[Fundamentos/Pilha]] — SP e LV são registradores-chave do datapath
+- [[Pilha — IJVM]] — SP e LV são registradores-chave do datapath
