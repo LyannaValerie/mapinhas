@@ -224,6 +224,9 @@ Solução: VPN dividido em k índices. Cada nível aponta para o próximo. Regi�
 - [[Processo]] — cada processo tem espaço de endereçamento virtual próprio
 - [[Sistema Operacional]] — VM é uma das três abstrações fundamentais do SO
 - [[Hierarquia de Memória]] — VM estende a hierarquia até o disco
+- [[Paginação]] — mecanismo geral: páginas, quadros, tabela de páginas, falta de página
+- [[Paginação por Demanda]] — carregamento sob demanda, conjunto de trabalho, thrashing
+- [[Política de Substituição de Página]] — NRU, FIFO, Second Chance, LRU
 - [[Paginação x86]] — hardware x86: PML4/PDPT/PD/PT, TLB, PAE, XD/NX
 - [[Mapeamento de Memória]] — `mmap()`, copy-on-write, `fork`, `execve`, objetos compartilhados
 - [[Alocação Dinâmica de Memória]] — `malloc`/`free` internos, fragmentação, listas livres, GC, bugs

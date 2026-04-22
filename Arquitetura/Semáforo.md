@@ -323,5 +323,6 @@ void writer(void) {
 - [[Multiplexação de IO]] — alternativa ao uso de threads para concorrência
 - [[Sistema Operacional]] — semáforos como primitivas do nível OSM
 - [[Interrupção]] — desabilitar interrupções: base da implementação de semáforos em uniprocessadores
+- [[Condições de Disputa]] — race condition, região crítica, exclusão mútua, quatro condições de Dijkstra
 - [[Concorrência e Paralelismo]] — paralelismo real vs. simulado; condições de corrida em multicore
 - [[DMA]] — roubo de ciclo como outra forma de acesso concorrente a recursos compartilhados

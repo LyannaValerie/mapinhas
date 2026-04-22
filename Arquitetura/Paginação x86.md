@@ -168,6 +168,9 @@ Cache interno do processador que armazena as **últimas conversões** endereço 
 
 ## Ver também
 - [[Memória Virtual]] — perspectiva do SO: espaço por processo, page fault, heap/stack
+- [[Paginação]] — conceito geral independente de arquitetura
+- [[Paginação por Demanda]] — carregamento sob demanda, working set, thrashing
+- [[Política de Substituição de Página]] — NRU, FIFO, Second Chance, LRU
 - [[Organização de Memória x86]] — endereços lineares vs. físicos, segmentação
 - [[Proteção de Memória x86]] — descritores de segmento, rings de privilégio
 - [[Registradores x86]] — CR3 (base da tabela de páginas), CR2 (endereço da page fault)
