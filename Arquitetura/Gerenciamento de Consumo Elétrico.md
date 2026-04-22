@@ -69,7 +69,23 @@ Padrão criado por Intel + Microsoft + Toshiba. Suportado pelo Windows via confi
 
 ---
 
-## Relação Potência × Tensão × Frequência
+## Fórmulas de Energia e Potência
+
+### Energia dinâmica (por transição de chaveamento)
+
+$$E_{\text{dynamic}} = \frac{1}{2} \cdot C \cdot V^2$$
+
+### Potência dinâmica
+
+$$P_{\text{dynamic}} = \frac{1}{2} \cdot C \cdot V^2 \cdot f_{\text{switched}}$$
+
+### Potência estática (leakage)
+
+$$P_{\text{static}} = I_{\text{static}} \cdot V$$
+
+Significativa em feature sizes ≤16 nm. Principal causa do fim do [[Lei de Moore|escalonamento de Dennard]].
+
+## Relação Potência × Tensão × Frequência (forma simplificada)
 
 $$P = C \cdot V^2 \cdot f$$
 
