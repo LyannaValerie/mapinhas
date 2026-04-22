@@ -290,8 +290,11 @@ Sincronização com mutex tem custo alto relativo a uma operação de memória. 
 
 ## Ver também
 - [[Multithreading no Chip]] — granulação fina, grossa, SMT, hyperthreading
+- [[VLIW]] — Very Long Instruction Word; paralelismo explícito pelo compilador; TriMedia, EPIC
+- [[Coprocessador]] — processador especializado auxiliar; canais de E/S, FPU, GPU, criptografia
 - [[Multiprocessadores]] — UMA, NUMA, COMA, crossbar, rede ômega, coerência
 - [[Multicomputadores e Clusters]] — MPPs (BlueGene, Red Storm), clusters, MPI, DSM, Linda, Orca
+- [[Computação em Grade]] — grade distribuída via Internet; OGSA, Globus Toolkit
 - [[Coerência de Cache]] — protocolo MESI, snooping, write-back
 - [[Redes de Interconexão]] — topologias, métricas, hipercubo, toro
 - [[Desempenho do Processador]] — cache, previsão de desvios, superescalar, OoO, HT, clock dinâmico

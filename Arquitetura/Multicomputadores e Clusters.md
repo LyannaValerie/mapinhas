@@ -183,6 +183,7 @@ $$\text{Speedup} = \frac{n}{1 + (n-1)f}$$
 
 ## Ver também
 - [[Multiprocessadores]] — memória compartilhada em hardware
+- [[Computação em Grade]] — nível seguinte: distribuída via Internet, OGSA, Globus
 - [[Redes de Interconexão]] — topologias (toro, hipercubo, grade)
 - [[Lei de Amdahl]] — limite de speedup
 - [[Concorrência e Paralelismo]] — visão geral do espaço de arquiteturas paralelas

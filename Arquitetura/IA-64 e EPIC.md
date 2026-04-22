@@ -177,6 +177,7 @@ A arquitetura IA-64 é tecnicamente superior à IA-32 em vários aspectos. Apesa
 ---
 
 ## Ver também
+- [[VLIW]] — Very Long Instruction Word; EPIC como variante VLIW para uso geral
 - [[Intel x86]]
 - [[RISC e CISC]]
 - [[ISA]]

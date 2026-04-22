@@ -273,6 +273,57 @@ Chamadas disponíveis: `_OPEN` (5), `_CREAT` (8), `_READ` (3), `_WRITE` (4), `_C
 
 ---
 
+## Rastreador (tracer / depurador)
+
+Ferramenta interpretadora/rastreadora/depuradora fornecida com o ambiente as88. Executa o binário 8088 passo a passo em um terminal VT100 24×80, atualizando sete janelas a cada instrução.
+
+### Layout das janelas
+
+```
+┌──────────────────┬───────────┬─────────────────────┐
+│  Processador     │   Pilha   │   Arquivo-fonte      │
+│  (registradores) │  (hex)    │   (próx. instrução)  │
+├──────────────────┤           ├─────────────────────┤
+│  Pilha de        │           │  E: erro rastreador  │
+│  chamadas        ├───────────┤  I: entrada          │
+├──────────────────┤ Comandos  │  >: saída padrão     │
+│  Valores de variáveis globais (seg. dados)          │
+└─────────────────────────────────────────────────────┘
+```
+
+- **Processador**: registradores gerais em decimal; CS, IP, SS, SP, DS em hex; cinco flags (`v`=overflow, `>`/`<`=direção, `n`/`p`=sinal, `z`=zero, `c`=carry)
+- **Pilha**: conteúdo em hex; `=>` indica SP atual; dígito prefixado = endereço de retorno
+- **Arquivo-fonte**: trecho do fonte; `=>` aponta instrução corrente
+- **Pilha de chamadas**: sub-rotinas mais recentes
+- **Dados globais**: seis itens; cada um: offset+rótulo, posição absoluta, 8 bytes hex, 11 chars, 4 palavras decimais
+
+### Arquivos do projeto `pr`
+
+| Extensão | Conteúdo |
+|---|---|
+| `pr.s` | código-fonte assembly |
+| `pr.$` | fonte compilado (maiúsculas, sem CR) |
+| `pr.88` | arquivo de carga |
+| `pr.i` | entrada-padrão predefinida |
+| `pr.t` | comandos de rastreador predefinidos |
+| `pr.#` | mapeamento código ↔ carga |
+
+### Comandos principais
+
+| Comando | Ação |
+|---|---|
+| Enter | executa uma instrução |
+| `k` ou `k!` | executa k instruções |
+| `/T+#g` | executa até linha # após rótulo T |
+| `/T+#b` | põe ponto de interrupção em linha # |
+| `/T+#c` | remove ponto de interrupção |
+| `n` | executa até próxima linha |
+| `r` | executa até ponto de interrupção ou fim |
+| `=` | executa até mesmo nível de sub-rotina |
+| `q` | sai do rastreador |
+
+---
+
 ## Ver também
 - [[Linguagem Assembly]] — conceitos gerais de assembly, pseudoinstruções, assembler
 - [[Macros Assembly]] — macros no assembler
@@ -282,3 +333,4 @@ Chamadas disponíveis: `_OPEN` (5), `_CREAT` (8), `_READ` (3), `_WRITE` (4), `_C
 - [[Processo de Montagem]] — duas passagens do assembler
 - [[Ligador]] — ligação de módulos-objeto
 - [[Intel x86]] — evolução do 8088 para arquitetura x86 moderna
+- [[Sistemas de Representação]] — binário, complemento de dois, IEEE 754

@@ -166,6 +166,7 @@ Seletores de 16 bits identificam o segmento. O seletor carrega automaticamente o
 ## Ver também
 - [[Memória Virtual]] — paginação: alternativa à segmentação; comparação conceitual
 - [[Proteção de Memória x86]] — LDT, GDT, descritores de segmento no x86
+- [[Paginação]] — alternativa com blocos de tamanho fixo; comparação na nota
 - [[Paginação x86]] — paginação sobre endereços lineares produzidos pela segmentação
 - [[Organização de Memória x86]] — endereçamento segmentado no x86
 - [[Sistema Operacional]] — segmentação como mecanismo do nível OSM
