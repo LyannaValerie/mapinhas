@@ -5,18 +5,75 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"00 Mapas\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "path:\"01 Fundamentos\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "path:\"02 Hardware\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "path:\"03 Arquitetura de Computadores\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    },
+    {
+      "query": "path:\"04 Sistemas de Software\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
+      }
+    },
+    {
+      "query": "path:\"05 Programação\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 5419488
+      }
+    },
+    {
+      "query": "path:\"06 Compiladores\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 5395168
+      }
+    },
+    {
+      "query": "path:\"07 Linguagens Formais e Expressões\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
+    }
+  ],
   "collapse-display": false,
-  "showArrow": false,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1,
-  "lineSizeMultiplier": 1,
+  "showArrow": true,
+  "textFadeMultiplier": -0.3,
+  "nodeSizeMultiplier": 1.16031087239583,
+  "lineSizeMultiplier": 0.507137044270833,
   "collapse-forces": false,
-  "centerStrength": 0.22021484375,
-  "repelStrength": 13.2535807291667,
-  "linkStrength": 1,
-  "linkDistance": 283,
-  "scale": 0.0877914951989025,
+  "centerStrength": 0.0770670572916667,
+  "repelStrength": 19.4189453125,
+  "linkStrength": 0.744303385416667,
+  "linkDistance": 500,
+  "scale": 0.0263671875,
   "close": true
 }

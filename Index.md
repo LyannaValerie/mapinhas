@@ -102,3 +102,6 @@ graph TD
 - `#computação/fundamentos` — conceitos básicos de hardware e software
 - `#computação/arquitetura` — modelos e estruturas de computadores
 - `#computação/histórico` — contexto histórico e projetos seminais
+%% Navegação hierárquica gerada pelo Codex %%
+> [!info] Estrutura do vault
+> Entrada principal: [[Mapa Geral do Vault]]

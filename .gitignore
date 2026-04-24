@@ -5,4 +5,6 @@
 Obsidian-1.12.7.appimage
 .obsidian/workspace.json
 livros.txt
+claude.txt
+.~lock.*#
 backup/
