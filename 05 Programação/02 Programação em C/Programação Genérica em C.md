@@ -54,7 +54,15 @@ Combinar macro fina com funções reais:
 
 Programação genérica em C usa [[Macros Tipo Função em C]], mas não deve herdar suas armadilhas sem controle.
 
+Interface genérica robusta combina macro fina para seleção, função real para execução e [[Funções Inline em C]] quando a chamada pequena precisa permanecer barata.
+
+## Ver também
+
+- [[Macros Tipo Função em C]]
+- [[Funções Inline em C]]
+- [[Restrict em C]]
+- [[Performance em C]]
+
 ## Nota de integração
 
 criado pelo Codex
-

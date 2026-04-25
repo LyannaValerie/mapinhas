@@ -32,11 +32,11 @@ Uso de recursos da linguagem e medição empírica para reduzir custo de execuç
 
 ## `inline`
 
-`inline` pode reduzir overhead de chamada, mas não obriga o compilador a expandir. Uso típico: funções pequenas em caminho quente.
+`inline` pode reduzir overhead de chamada, mas não obriga o compilador a expandir. Uso típico: funções pequenas em caminho quente. Ver [[Funções Inline em C]].
 
 ## `restrict`
 
-`restrict` informa que, durante o tempo de vida daquele ponteiro, o objeto acessado não será acessado por outro ponteiro incompatível. Isso permite otimizações em loops sobre arrays.
+`restrict` informa que, durante o tempo de vida daquele ponteiro, o objeto acessado não será acessado por outro ponteiro incompatível. Isso permite otimizações em loops sobre arrays. Ver [[Restrict em C]].
 
 ```c
 void add(size_t n, double a[restrict n], double b[restrict n]) {
@@ -49,7 +49,17 @@ void add(size_t n, double a[restrict n], double b[restrict n]) {
 
 Otimização sem medição pode piorar programa. Medir antes e depois separa custo real de intuição.
 
+## Atributos de função
+
+`[[unsequenced]]` e `[[reproducible]]` comunicam garantias sobre efeitos e repetibilidade de chamadas. Quando corretos, aumentam as oportunidades de movimentação, combinação ou eliminação de chamadas. Ver [[Atributos unsequenced e reproducible em C]].
+
+## Ver também
+
+- [[Funções Inline em C]]
+- [[Restrict em C]]
+- [[Atributos unsequenced e reproducible em C]]
+- [[Macros Tipo Função em C]]
+
 ## Nota de integração
 
 criado pelo Codex
-

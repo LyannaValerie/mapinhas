@@ -53,7 +53,12 @@ Tratamento robusto usa um caminho claro de saída:
 
 `assert` pertence a invariantes internas e erros de programação. Não substitui validação de entrada externa. Ver [[Biblioteca assert.h]].
 
+## Ver também
+
+- [[Limpeza com goto em C]]
+- [[Ponteiro Nulo em C]]
+- [[Aritmética de Ponteiros em C]]
+
 ## Nota de integração
 
 criado pelo Codex
-

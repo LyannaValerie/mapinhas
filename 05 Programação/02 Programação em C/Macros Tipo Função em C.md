@@ -42,11 +42,18 @@ Macro do pré-processador que recebe argumentos e expande tokens antes da compil
 
 Quando possível, prefira função `static inline` para preservar tipo e avaliação única. Macro continua útil para geração de código, seleção genérica e integração com pré-processador.
 
+Macros tipo função permanecem relevantes em C porque viabilizam interfaces fáceis para [[Programação Genérica em C]] e checagens de parâmetros que precisam ocorrer antes da compilação semântica.
+
 ## Relação com pré-processador
 
 Esta nota detalha caso específico de [[Pré-processador C]]. Para constantes, `#include`, `#if`, `#undef`, stringificação e concatenação básica, ver nota principal.
 
+## Ver também
+
+- [[Funções Inline em C]]
+- [[Programação Genérica em C]]
+- [[Performance em C]]
+
 ## Nota de integração
 
 criado pelo Codex
-

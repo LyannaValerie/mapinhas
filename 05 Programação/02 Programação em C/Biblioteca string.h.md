@@ -104,5 +104,6 @@ memmove(s, s+1, strlen(s));   /* remove 1º char (sobreposição → memmove) */
 
 - [[Ponteiros em C]] — strings são `char *`
 - [[Arrays em C]] — arrays de char
+- [[Codificações de Texto em C]] — multibyte, UTF e contagem de bytes vs caracteres
 - [[Biblioteca ctype.h]] — classificação de caracteres individuais
 - [[Biblioteca stdlib.h em C]] — `atoi`, `strtol` para conversão de strings em números

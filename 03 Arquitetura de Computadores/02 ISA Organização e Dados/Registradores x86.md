@@ -253,3 +253,4 @@ Os registradores SIMD (XMM, YMM, ZMM) disponíveis por modo estão listados em [
 - [[Memória Virtual]] — CR2/CR3 no mecanismo de paginação
 - [[Interrupção]] — IDTR aponta para a tabela de tratamento de interrupções
 - [[Intel x86]] — evolução histórica dos registradores
+- [[FPU x87 — Programação Assembly]] — instruções de ponto flutuante: FLD, FST, FADD, FCOM, FSTSW/SAHF

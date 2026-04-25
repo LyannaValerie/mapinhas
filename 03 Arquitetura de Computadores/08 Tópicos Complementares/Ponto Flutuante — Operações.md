@@ -274,3 +274,4 @@ l.d  $f4, 0($t2)         # carrega double
 - [[Aritmética Inteira]] — propriedades algébricas, não-associatividade FP vs inteiro
 - [[MIPS — Conjunto de Instruções]] — ISA completa com FP
 - [[ULA]] — hardware de execução; unidade FP integrada desde 1990s
+- [[Aritmética Decimal BCD]] — representação decimal e conversão via FPU x87
