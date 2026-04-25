@@ -213,6 +213,10 @@ Chamada: `qsort(array, 0, n-1, strcmp)` ou `qsort(array, 0, n-1, numcmp)`.
 
 ## Ver também
 - [[Arrays em C]] — equivalência array/ponteiro; strings
+- [[Aritmética de Ponteiros em C]] — deslocamento, subtração e `ptrdiff_t`
+- [[Ponteiro Nulo em C]] — ausência de objeto apontado
+- [[Ponteiro void em C]] — ponteiro para objeto de tipo não especificado
+- [[Ponteiros para Função em C]] — callbacks e `qsort`
 - [[Funções em C]] — call by value; passagem de array
 - [[Escopo em C]] — variáveis automáticas; `static`
 - [[Argumentos de Linha de Comando em C]] — `argc`, `argv`

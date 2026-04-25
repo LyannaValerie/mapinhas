@@ -45,6 +45,7 @@ Interrupções e **exceções** funcionam pelo mesmo mecanismo — diferem apena
 - NMI → aceita → interrupções não-mascaráveis
 - APIC → expande → linhas de interrupção mascarável para múltiplos dispositivos
 - IDT → armazena → endereços dos handlers de cada interrupção/exceção
+- Tabela de vetores de interrupção → mapeia → número de interrupção para handler em modo real
 - Processador → retoma → programa após atendimento
 
 ---
@@ -228,6 +229,7 @@ Ver [[Proteção de Memória x86]] para a estrutura da IDT como tabela de descri
 - [[Registradores x86]] — IF flag em EFLAGS; IDTR
 - [[Sistema Operacional]]
 - [[Chamada do Sistema]] — interrupções de software como mecanismo de syscall
+- [[Tabela de Vetores de Interrupção]] — forma real-mode usada pelo PC clássico
 - [[Proteção de Memória x86]] — IDT como tabela de descritores
 - [[Paginação x86]] — page fault (#PF) como exceção normal do sistema de paginação
 - [[Multitarefa]] — temporizador gera interrupção para forçar troca de tarefa

@@ -234,3 +234,4 @@ Overflow de inteiros é causa frequente de vulnerabilidades críticas.
 - [[Álgebra Booleana]] — operações bit a bit (~, &, |, ^) e aplicações em C
 - [[Registradores x86]] — flags OF (overflow), CF (carry), SF (sign), ZF (zero)
 - [[Linguagem Assembly]] — instrução `imul`/`mul`, `add`/`sub`, `sal`/`sar`/`shr`
+- [[Aritmética de Multiprecisão]] — propagação de carry/borrow por múltiplas palavras

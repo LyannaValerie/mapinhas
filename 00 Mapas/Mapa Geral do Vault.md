@@ -20,7 +20,6 @@ Mapa criado pelo Codex para expor a hierarquia de estudo. A hierarquia define or
 - [[MOC - Compiladores]]
 - [[MOC - Linguagens Formais e Expressões]]
 - [[Wiki-Link]]
-- [[Relatório de Reorganização do Vault]]
 
 ## Critério estrutural
 

@@ -25,8 +25,11 @@ Nota MOC criada pelo Codex para organizar o fluxo progressivo de aprendizado sem
 - [[ASCII]]
 - [[Conversão de Bases]]
 - [[Dados Binários]]
+- [[Flags Bit a Bit]]
 - [[Hexadecimal]]
+- [[Octal]]
+- [[Operações Bit a Bit]]
 - [[Palavras Binárias]]
+- [[Sistema Decimal]]
 - [[Sistemas de Representação]]
 - [[Unidades Métricas]]
-

@@ -144,3 +144,4 @@ Internamente, o assembler opera em **duas passagens**. Ver [[Processo de Montage
 - [[Processo de Montagem]]
 - [[Ligador]]
 - [[Processador 8088]] — ISA 8088, registradores, modos de endereçamento, assembler as88
+- [[NASM — Sintaxe e Diretivas]] — sintaxe NASM: segmentos, diretivas de dados, %define, global/extern
